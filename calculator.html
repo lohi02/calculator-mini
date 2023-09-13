@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<style>
+    body {
+   
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.calculator {
+    width: 300px;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 15%;
+  
+   
+}
+
+#display {
+    border-bottom: 100%;
+    margin-top: 50px;
+    padding-bottom: 5px;
+    font-size: 24px;
+    text-align: right;
+    border: 0px white solid;
+    border-bottom: 2px rgb(204, 203, 203) solid;
+    
+}
+
+.buttoni {
+    border-radius: 25px;
+    width: 60px;
+    height: 50px;
+    font-size: 20px;
+    margin: 5px;
+    background-color: rgb(128, 216, 204, 0.553);
+    border: 0px white solid;
+    font-weight: 600;
+}
+.b{
+    border-radius: 25px;
+    width: 60px;
+    height: 50px;
+    font-size: 20px;
+    margin: 5px;
+    background-color: rgb(7, 126, 96, 0.858);
+    border: 0px white solid;
+    color: white;
+    font-weight: 600;
+}
+.switch{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #000;
+    display: flex;
+    align-items: flex-start;
+    border: 0px white solid;
+}
+</style>
+<body>
+    <div div style="color: rgb(7, 126, 96, 0.858)">
+        <h2><u>CALCULATOR</u></h2>
+    </div>
+    <div class="calculator">
+        <button class="switch" onclick="togglec()"></button>
+        <input type="text" id="display" >
+        <div style="margin: 20px;"></div>
+        <div class="buttons">
+            <button onclick="clearDisplay()" class="b">C</button>
+            <button onclick="appendToDisplay('%')" class="b">%</button>
+            <button onclick="clearDisplay()" class="b">CE</button>
+            <button onclick="appendToDisplay('/')" class="b">/</button>
+            <button onclick="appendToDisplay('7')" class="buttoni">7</button>
+            <button onclick="appendToDisplay('8')" class="buttoni">8</button>
+            <button onclick="appendToDisplay('9')" class="buttoni">9</button>
+            <button onclick="appendToDisplay('*')" class=b>X</button>
+            <button onclick="appendToDisplay('4')" class="buttoni">4</button>
+            <button onclick="appendToDisplay('5')" class=buttoni>5</button>
+            <button onclick="appendToDisplay('6')" class="buttoni">6</button>
+            <button onclick="appendToDisplay('-')" class="b">-</button>
+            <button onclick="appendToDisplay('1')" class=buttoni>1</button>
+            <button onclick="appendToDisplay('2')" class=buttoni>2</button>
+            <button onclick="appendToDisplay('3')" class="buttoni">3</button>
+            <button onclick="appendToDisplay('+')" class="b">+</button>
+            <button onclick="appendToDisplay('00')" class=buttoni>00</button>
+            <button onclick="appendToDisplay('0')" class=buttoni>0</button>
+            <button onclick="appendToDisplay('.')" class="buttoni">.</button>
+            <button onclick="calculate()" class="b" class="buttoni">=</button>
+            
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById('display');
+    
+        function appendToDisplay(value) {
+            display.value += value;
+        }
+    
+        function clearDisplay() {
+            display.value = '';
+        }
+    
+        function calculate() {
+            display.value = eval(display.value);
+        }
+    
+        let a = false;
+    
+        function c1() {
+            document.querySelector(".calculator").style.backgroundColor = 'black';
+            document.querySelector(".switch").style.backgroundColor = 'white';
+            document.querySelector("#display").style.backgroundColor = 'black';  
+            document.querySelector("#display").style.color = 'white'; 
+            a = false;
+        }
+    
+        function c2() {
+            document.querySelector(".calculator").style.backgroundColor = 'white';
+            document.querySelector(".switch").style.backgroundColor = 'black';
+            document.querySelector("#display").style.backgroundColor = 'white';  
+            document.querySelector("#display").style.color = 'black'; 
+            a = true;
+        }
+    
+        function togglec() {
+            a ? c1() : c2();
+        }
+    </script>
+    
+</body>
+</html>
